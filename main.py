@@ -35,6 +35,10 @@ if __name__ == '__main__':
 
     # For each contact, send the email:
     for participant_name, dest_email in zip(names, dest_emails):
+        
+        #captalizing the name
+        participant_name = participant_name.capitalize()
+
         # Generate image certificate
         image_filename = generateCertImage(
             name=participant_name, certificate=CERTIFICATE, event=EVENT)

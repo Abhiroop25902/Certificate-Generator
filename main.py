@@ -12,8 +12,8 @@ LOGIN_CREDENTIAL_FILE = './login_credential.txt'
 CONTACT_LIST_FILE = './participants.csv'
 MESSSAGE_FORMAT_FILE = './message.txt'
 MAIL_SUBJECT = "This is TEST"
-CC = "abhiroopgamer@gmail.com"
-BCC = "510519109.abhirup@students.iiests.ac.in"
+CC = "abhiroopgamer@gmail.com, abc@example.com"
+BCC = "510519109.abhirup@students.iiests.ac.in, bcd@example.com"
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

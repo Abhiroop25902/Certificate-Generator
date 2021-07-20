@@ -37,5 +37,3 @@ def send_mail(s: smtplib.SMTP, message_template: Template, name: str,
 
     # send the message via the server set up 
     s.send_message(msg)
-
-    del msg

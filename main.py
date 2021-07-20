@@ -1,5 +1,5 @@
 # Program to write a text on cert.png using Pillow
-#
+# import the smtplib module. It should be included in Python by default
 import smtplib
 from utils.image import generateCertImage
 from utils.email import send_mail
@@ -12,11 +12,11 @@ LOGIN_CREDENTIAL_FILE = './login_credential.txt'
 CONTACT_LIST_FILE = './participants.csv'
 MESSSAGE_FORMAT_FILE = './message.txt'
 MAIL_SUBJECT = "This is TEST"
+CC = "abhiroopgamer@gmail.com"
+BCC = "510519109.abhirup@students.iiests.ac.in"
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-
-# import the smtplib module. It should be included in Python by default
 
 
 if __name__ == '__main__':
@@ -46,7 +46,8 @@ if __name__ == '__main__':
 
         # send email to the contact
         send_mail(s, message_template, participant_name, dest_email,
-                  src_email=credential[0], mail_subject= MAIL_SUBJECT, image_file=image_filename)
+                  src_email=credential[0], mail_subject=MAIL_SUBJECT, image_file=image_filename,
+                  cc=CC, bcc = BCC)
 
         # delete the image certificate generated
         os.remove(image_filename)

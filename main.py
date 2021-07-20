@@ -11,6 +11,7 @@ CERTIFICATE = './cert.png'
 LOGIN_CREDENTIAL_FILE = './login_credential.txt'
 CONTACT_LIST_FILE = './contact_list.txt'
 MESSSAGE_FORMAT_FILE = './message.txt'
+MAIL_SUBJECT = "This is TEST"
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -24,19 +25,19 @@ if __name__ == '__main__':
     s = smtplib.SMTP(host=EMAIL_HOST, port=EMAIL_PORT)
     s.starttls()
 
-    #read credential from a safe file(added in .gitignore) and login using that
+    # read credential from a safe file(added in .gitignore) and login using that
     credential = file_reader.read_credential(LOGIN_CREDENTIAL_FILE)
     s.login(credential[0], credential[1])
 
-    #read contact details and message template
+    # read contact details and message template
     names, dest_emails = file_reader.get_contacts(
         CONTACT_LIST_FILE)  # read contact
     message_template = file_reader.read_template(MESSSAGE_FORMAT_FILE)
 
     # For each contact, send the email:
     for participant_name, dest_email in zip(names, dest_emails):
-        
-        #captalizing the name
+
+        # captalizing the name
         participant_name = participant_name.capitalize()
 
         # Generate image certificate
@@ -45,7 +46,7 @@ if __name__ == '__main__':
 
         # send email to the contact
         send_mail(s, message_template, participant_name, dest_email,
-                  src_email=credential[0], image_file=image_filename)
+                  src_email=credential[0], mail_subject= MAIL_SUBJECT, image_file=image_filename)
 
         # delete the image certificate generated
         os.remove(image_filename)

@@ -11,7 +11,7 @@ import os
 
 
 def send_mail(s: smtplib.SMTP, message_template: Template, name: str,
-              dest_email: str, src_email: str, image_file: str):
+              dest_email: str, src_email: str, mail_subject:str, image_file: str):
     msg = MIMEMultipart()       # create a message
 
     # add in the actual person name to the message template
@@ -20,7 +20,7 @@ def send_mail(s: smtplib.SMTP, message_template: Template, name: str,
     # setup the parameters of the message
     msg['From'] = src_email
     msg['To'] = dest_email
-    msg['Subject'] = "This is TEST"
+    msg['Subject'] = mail_subject
 
     # add in the message body
     msg.attach(MIMEText(message, 'plain'))

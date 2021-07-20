@@ -25,13 +25,14 @@ def send_mail(s: smtplib.SMTP, message_template: Template, name: str,
     # add in the message body
     msg.attach(MIMEText(message, 'plain'))
 
+    #read and attach image to mail
     with open(image_file, 'rb') as f:
         img_data = f.read()
 
     image = MIMEImage(img_data, name=os.path.basename(image_file))
     msg.attach(image)
 
-    # send the message via the server set up earlier.
+    # send the message via the server set up 
     s.send_message(msg)
 
     del msg

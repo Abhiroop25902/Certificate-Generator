@@ -9,7 +9,7 @@ import os
 EVENT = 'Portfolio-Contest'
 CERTIFICATE = './cert.png'
 LOGIN_CREDENTIAL_FILE = './login_credential.txt'
-CONTACT_LIST_FILE = './contact_list.txt'
+CONTACT_LIST_FILE = './participants.csv'
 MESSSAGE_FORMAT_FILE = './message.txt'
 MAIL_SUBJECT = "This is TEST"
 

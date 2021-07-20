@@ -9,8 +9,8 @@ import os
 EVENT = 'Portfolio-Contest'
 CERTIFICATE = './cert.png'
 LOGIN_CREDENTIAL_FILE = './login_credential.txt'
-CONTACT_LIST_FILE = 'contactList.txt'
-MESSSAGE_FORMAT_FILE = 'message.txt'
+CONTACT_LIST_FILE = './contact_list.txt'
+MESSSAGE_FORMAT_FILE = './message.txt'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

@@ -5,6 +5,7 @@ from utils.image import generateCertImage
 from utils.email import send_mail
 from utils import file_reader
 import os
+from dotenv import load_dotenv, find_dotenv
 
 EVENT = 'Portfolio-Contest'
 CERTIFICATE = './cert.png'
@@ -26,8 +27,11 @@ if __name__ == '__main__':
     s.starttls()
 
     # read credential from a safe file(added in .gitignore) and login using that
-    credential = file_reader.read_credential(LOGIN_CREDENTIAL_FILE)
-    s.login(credential[0], credential[1])
+    load_dotenv(find_dotenv())
+    EMAIL = os.environ.get("EMAIL")
+    PASSWORD = os.environ.get("PASSWORD")
+
+    s.login(EMAIL, PASSWORD)
 
     # read contact details and message template
     names, dest_emails = file_reader.get_contacts(
@@ -46,7 +50,7 @@ if __name__ == '__main__':
 
         # send email to the contact
         send_mail(s, message_template, participant_name, dest_email,
-                  src_email=credential[0], mail_subject=MAIL_SUBJECT, image_file=image_filename,
+                  src_email=EMAIL, mail_subject=MAIL_SUBJECT, image_file=image_filename,
                   cc=CC, bcc = BCC)
 
         # delete the image certificate generated

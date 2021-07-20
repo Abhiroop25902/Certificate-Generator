@@ -9,15 +9,15 @@ from dotenv import load_dotenv, find_dotenv
 
 EVENT = 'Portfolio-Contest'
 CERTIFICATE = './cert.png'
-LOGIN_CREDENTIAL_FILE = './login_credential.txt'
 CONTACT_LIST_FILE = './participants.csv'
 MESSSAGE_FORMAT_FILE = './message.txt'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+
+
 MAIL_SUBJECT = "This is TEST"
 CC = "abhiroopgamer@gmail.com, abc@example.com"
 BCC = "510519109.abhirup@students.iiests.ac.in, bcd@example.com"
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
 
 
 if __name__ == '__main__':
@@ -51,7 +51,7 @@ if __name__ == '__main__':
         # send email to the contact
         send_mail(s, message_template, participant_name, dest_email,
                   src_email=EMAIL, mail_subject=MAIL_SUBJECT, image_file=image_filename,
-                  cc=CC, bcc = BCC)
+                  cc=CC, bcc=BCC)
 
         # delete the image certificate generated
         os.remove(image_filename)

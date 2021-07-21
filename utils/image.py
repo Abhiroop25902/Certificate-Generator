@@ -1,7 +1,7 @@
 from PIL import Image, ImageFont, ImageDraw
 
 
-def generateCertImage(name, certificate, output_dir='', font='fonts/Montserrat-Bold.ttf', size=100, height_offset=60, event='CodeIIEST'):
+def generateCertImage(name, certificate, font='fonts/Montserrat-Bold.ttf', size=100, height_offset=60, event='CodeIIEST') -> str:
     # Open image
     img = Image.open(certificate)
 
@@ -21,5 +21,7 @@ def generateCertImage(name, certificate, output_dir='', font='fonts/Montserrat-B
               name, font=font, fill=(0, 0, 0))
 
     # Save the image
-    img.save(
-        '{output_dir}/{name}-{event}.png'.format(output_dir=output_dir, name=name.replace(' ', '-'), event=event))
+    img_filename = '{name}-{event}.png'.format(
+        name=name.replace(' ', '-'), event=event)
+    img.save(img_filename)
+    return img_filename

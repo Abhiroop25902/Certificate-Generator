@@ -1,6 +1,12 @@
-Dear ${PERSON_NAME}, 
+Hey {name},
 
-This is a test message. 
-Have a great weekend! 
+The moment you have been waiting for.
+Thank you for taking part in the CodeIIEST Portfolio Competition. You did a fantastic job, absolutely enthralling the judges!
 
-Yours Truly
+We have attached your certificate below.
+
+Continue to participate in this manner, demonstrating your passion, and astonish us with your abilities!
+
+Regards,
+
+CodeIIEST
